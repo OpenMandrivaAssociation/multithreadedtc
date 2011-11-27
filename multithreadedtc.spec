@@ -1,7 +1,7 @@
 %global project_name MultithreadedTC
 Name:           multithreadedtc
 Version:        1.01
-Release:        10
+Release:        12
 Summary:        A framework for testing concurrent Java application
 
 Group:          Development/Java
