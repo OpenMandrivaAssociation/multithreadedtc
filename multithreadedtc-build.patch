@@ -1,0 +1,28 @@
+--- build.xml.sav	2007-08-13 18:49:46.000000000 +0300
++++ build.xml	2010-06-02 22:34:58.490132827 +0300
+@@ -10,15 +10,22 @@
+ 	<property name="all.info.files" value="${info.files},README-JDK14.txt" />
+ 
+ 	<!-- Create distribution jar -->
+-	<target name="distjar">
+-		<jar destfile="${jarfile}" update="true">
++	<target name="distjar" depends="compile">
++        	<jar destfile="${jarfile}" update="true">
+ 			<fileset dir="bin" includes="edu/**/*class" />
+ 			<fileset dir="." includes="${info.files}" />
+ 		</jar>
+ 	</target>
+ 	
++	<target name="compile" 
++        description="compile the source " >
++        <mkdir dir="bin"/>
++    	<javac srcdir="src" destdir="bin"/>
++	</target>
++
++	
+ 	<!-- Create Source Distribution zip -->
+-	<target name="sourcezip" depends="distjar,distjar-jdk14">
++	<target name="sourcezip" depends="distjar">
+ 		<zip destfile="${sourcename}.zip" update="true">
+ 			<zipfileset dir="." includes="src/**" excludes="**.svn**" prefix="${sourcename}"/>
+ 			<zipfileset dir="." includes="examples/**" excludes="**.svn**" prefix="${sourcename}"/>
