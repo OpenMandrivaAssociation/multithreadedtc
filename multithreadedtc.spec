@@ -101,3 +101,11 @@ rm -rf %{buildroot}
 %{_javadocdir}/%{name}-%{version}
 %{_javadocdir}/%{name}
 
+
+
+%changelog
+* Sun Nov 27 2011 Guilherme Moro <guilherme@mandriva.com> 1.01-12
++ Revision: 734182
+- rebuild
+- imported package multithreadedtc
+
