@@ -2,8 +2,9 @@
 %global project_name MultithreadedTC
 Name:           multithreadedtc
 Version:        1.01
-Release:        15.0%{?dist}
+Release:        18.1
 Summary:        A framework for testing concurrent Java application
+Group:          Development/Java
 License:        BSD 
 URL:            http://www.cs.umd.edu/projects/PL/multithreadedtc
 #http://multithreadedtc.googlecode.com/files/MultithreadedTC-1.01-source.zip
@@ -60,18 +61,17 @@ install -m 644 %{project_name}-%{version}.jar   %{buildroot}%{_javadir}/%{projec
 install -d -m 755 %{buildroot}%{_mavenpomdir}
 install -pm 644 %{SOURCE1} \
     %{buildroot}%{_mavenpomdir}/JPP-%{project_name}.pom
-%add_maven_depmap JPP-%{project_name}.pom %{project_name}.jar -a "edu.umd.cs.mtc:multithreadedtc-jdk14"
+%add_maven_depmap JPP-%{project_name}.pom %{project_name}.jar -a "edu.umd.cs.mtc:multithreadedtc-jdk14,com.googlecode.multithreadedtc:multithreadedtc"
 
 # javadoc
 install -d -m 0755 %{buildroot}%{_javadocdir}/%{name}
 cp -pr web/docs/* %{buildroot}%{_javadocdir}/%{name}/
 rm -rf web/docs
 
-%files
+%files -f .mfiles
 %doc LICENSE.txt README.txt
 %{_javadir}/*
 %{_mavenpomdir}/*
-%{_mavendepmapfragdir}/*
 
 # Workaround for rpm bug, remove in F23
 %pre javadoc
