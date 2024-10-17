@@ -6,7 +6,7 @@ Release:        18.3
 Summary:        A framework for testing concurrent Java application
 Group:          Development/Java
 License:        BSD 
-URL:            http://www.cs.umd.edu/projects/PL/multithreadedtc
+URL:            https://www.cs.umd.edu/projects/PL/multithreadedtc
 #http://multithreadedtc.googlecode.com/files/MultithreadedTC-1.01-source.zip
 Source0:        %{project_name}-%{version}-source.zip
 Source1:        %{name}.pom
